@@ -1,0 +1,107 @@
+.carousel-promo {
+  position: relative;
+}
+
+.carousel-promo .carousel-promo-track {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 16px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lg-black) var(--lg-border);
+}
+
+.carousel-promo .carousel-promo-slide {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+  border-radius: var(--lg-radius);
+  overflow: hidden;
+}
+
+.carousel-promo .carousel-promo-link {
+  display: block;
+  height: 100%;
+}
+
+.carousel-promo .carousel-promo-link:focus-visible {
+  outline: 2px solid var(--lg-yellow);
+  outline-offset: -2px;
+}
+
+.carousel-promo picture,
+.carousel-promo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-promo .carousel-promo-nav {
+  display: none;
+}
+
+.carousel-promo .carousel-promo-nav button {
+  position: absolute;
+  top: calc(50% - 8px);
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lg-white);
+  box-shadow: var(--lg-shadow-panel);
+  cursor: pointer;
+}
+
+.carousel-promo .carousel-promo-nav button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--lg-black);
+  border-right: 2px solid var(--lg-black);
+}
+
+.carousel-promo .carousel-promo-prev {
+  left: 8px;
+}
+
+.carousel-promo .carousel-promo-prev::after {
+  transform: translateX(2px) rotate(-135deg);
+}
+
+.carousel-promo .carousel-promo-next {
+  right: 8px;
+}
+
+.carousel-promo .carousel-promo-next::after {
+  transform: translateX(-2px) rotate(45deg);
+}
+
+.carousel-promo .carousel-promo-nav button:disabled {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .carousel-promo .carousel-promo-slide {
+    flex-basis: calc((100% - 8px) / 2);
+  }
+}
+
+@media (min-width: 900px) {
+  .carousel-promo .carousel-promo-slide {
+    flex-basis: calc((100% - 16px) / 3);
+  }
+
+  .carousel-promo .carousel-promo-nav {
+    display: block;
+  }
+}

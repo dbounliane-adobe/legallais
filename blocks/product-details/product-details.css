@@ -33,6 +33,7 @@
 
 .product-details__gallery .pdp-carousel {
   max-height: 60vh;
+  overflow: hidden; /* Legallais: keep slides inside the carousel box */
 }
 
 .product-details__gallery .pdp-carousel--thumbnailsRow {
@@ -126,4 +127,31 @@
   border: 0;
   overflow: hidden;
   white-space: nowrap;
+}
+
+/* Legallais: present the PDP as a white card */
+main .section.product-details-container {
+  box-sizing: border-box;
+  max-width: 137.6rem;
+  margin: 1.6rem auto 4rem;
+  padding: 2.4rem 1.6rem;
+  border-radius: var(--lg-radius);
+  background: var(--lg-white);
+  box-shadow: 0 0.1rem 0.4rem rgb(0 0 0 / 8%);
+}
+
+main .section.product-details-container > div {
+  max-width: none;
+}
+
+.product-details .product-details__header h1,
+.product-details .pdp-header__title {
+  font: normal normal 700 2.4rem/3.2rem var(--type-base-font-family);
+  letter-spacing: normal;
+}
+
+@media (min-width: 900px) {
+  main .section.product-details-container {
+    padding: 3.2rem;
+  }
 }

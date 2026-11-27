@@ -61,3 +61,8 @@
     gap: 10px;
     align-items: center;
 }
+
+/* When the section already has an authored heading, hide the unit's default title */
+.section:has(> .default-content-wrapper :is(h2, h3)) .product-recommendations .recommendations-product-list__heading {
+  display: none;
+}

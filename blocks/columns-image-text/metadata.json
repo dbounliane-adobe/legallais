@@ -1,0 +1,12 @@
+{
+  "variantName": "columns-image-text",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Fixed side-by-side layout (one image, one text column) that never wraps into a list.",
+  "contentPattern": "Two columns: rounded image with yellow accent border beside heading/text/CTA.",
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "One row with two cells: an image and a text column (heading, paragraph, standalone CTA link). Put the text cell first to place the image on the right on desktop.",
+  "reuseGuidance": "Use for a single image + text feature. For more than two columns or generic layouts use columns.",
+  "sourceUrl": "https://www.legallais.com/"
+}

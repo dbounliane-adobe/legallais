@@ -1,0 +1,12 @@
+{
+  "variantName": "cards-logos",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Repeating look-alike linked logo items that flow in a scroller -> Cards.",
+  "contentPattern": "Logo-only tiles (no text), dense horizontal scroller.",
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "One row per brand: cell 1 logo image, cell 2 brand link (e.g. [ABUS](/marque/abus)). Rendered as a dense horizontal scroller of white logo tiles.",
+  "reuseGuidance": "Use for partner/brand logo strips. For cards with text use cards-teaser.",
+  "sourceUrl": "https://www.legallais.com/"
+}

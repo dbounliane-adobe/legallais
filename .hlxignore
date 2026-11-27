@@ -12,5 +12,13 @@ build.mjs
 cypress/
 tools/picker/src/*
 tools/pdp-metadata/*
+tools/importer/*
 plugins/experimentation/documentation/images/*
 sync-block-collection.sh
+content/*
+migration-work/*
+.hlx/*
+coverage/*
+logs/*
+node_modules/*
+catalog/

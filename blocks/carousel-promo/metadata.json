@@ -1,0 +1,12 @@
+{
+  "variantName": "carousel-promo",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Interactive swipe slider of linked promo images.",
+  "contentPattern": "Image-only linked promo slides, several visible at once, free-scroll with scrollbar (not one full-width slide).",
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Row of linked promotional visuals shown several at a time with a scrollbar and prev/next arrows (e.g. homepage service promos next to the welcome panel). One row per slide: cell 1 image, cell 2 link (link text is used as the accessible label).",
+  "reuseGuidance": "Use for image-only linked promos. For a single full-width hero slider with text use carousel; for logos use cards-logos.",
+  "sourceUrl": "https://www.legallais.com/"
+}

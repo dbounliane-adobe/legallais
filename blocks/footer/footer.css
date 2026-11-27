@@ -1,73 +1,226 @@
-footer {
-    background-color: var(--color-neutral-100);
-    font: var(--type-body-2-default-font);
-    letter-spacing: var(--type-body-2-default-letter-spacing);
+/* Legallais footer — mobile first, desktop from 900px */
+/* stylelint-disable no-descending-specificity */
+
+footer .footer {
+  font-family: var(--type-base-font-family);
+  letter-spacing: normal;
+  color: var(--lg-black);
+  background: var(--lg-grey-bg);
 }
 
-footer .footer > div {
-    margin: auto;
-    max-width: 1200px;
-    padding: 40px 24px 24px;
+footer .footer-inner {
+  padding: 0 1.6rem;
 }
 
-footer .footer p {
-    margin: 0;
+footer .footer-inner *,
+footer .footer-inner *::before,
+footer .footer-inner *::after {
+  box-sizing: border-box;
 }
 
-.storeview-switcher-button {
-    background: transparent;
-    padding-left: 0;
+footer .footer-main {
+  padding: 3.2rem 0;
 }
 
-.storeview-modal-storeview-title {
-    margin-bottom: var(--spacing-xxbig);
-    padding-inline-start: var(--spacing-xbig);
+footer .footer-main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.modal .close-button {
-    top: 40px !important;
-    right: 40px !important;
+footer .footer-title {
+  position: relative;
+  margin: 0 0 1.6rem;
+  padding-left: 1.6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.95rem;
+  text-transform: uppercase;
 }
 
-.storeview-single-store {
-    list-style-type: none;
+footer .footer-title::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  border-style: solid;
+  border-width: 0.6rem 0 0.6rem 0.7rem;
+  border-color: transparent transparent transparent var(--lg-yellow);
 }
 
-.storeview-selection .storeview-multiple-stores {
-    list-style-image: url("../../icons/chevron-right.svg");
-    list-style-position: inside;
+/* link columns */
+footer .footer-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
 }
 
-.storeview-selection > li {
-    margin-bottom: var(--spacing-small);
+footer .footer-links a {
+  display: block;
+  padding-left: 1.6rem;
+  font: 400 1.4rem/3.4rem var(--type-base-font-family);
+  color: #3c3c3c;
+  text-decoration: none;
 }
 
-.storeview-multiple-stores > ul {
-    position: relative;
-    width: 100%;
+footer .footer-links a:hover {
+  color: #3c3c3c;
+  text-decoration: underline;
 }
 
-.storeview-multiple-stores > ul > li {
-    list-style: none;
-    display: none;
+/* certification band */
+footer .footer-band-group {
+  margin-bottom: 3.2rem;
 }
 
-.storeview-multiple-stores[aria-expanded="true"] {
-    list-style-image: url("../../icons/chevron-down.svg");
+footer .footer-main .footer-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.6rem 4rem;
+  margin: 0 0 0 1.6rem;
+  padding: 0;
+  list-style: none;
 }
 
-.storeview-multiple-stores[aria-expanded="true"] > ul {
-    padding-left: 0;
+footer .footer-logos a {
+  display: block;
 }
 
-.storeview-multiple-stores[aria-expanded="true"] > ul > li {
-    display: block;
-    list-style-type: none;
-    margin-bottom: var(--spacing-small);
+footer .footer-logos img {
+  display: block;
+  width: auto;
+  height: 8rem;
+  max-width: 12rem;
+  object-fit: contain;
+}
+
+/* bottom bar */
+footer .footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 1.6rem;
+  background: #ededed;
+}
+
+footer .footer-bottom-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+footer .footer-bottom-group .footer-title {
+  flex: 1 1 auto;
+}
+
+footer .footer-bottom .footer-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+footer .footer-bottom ul {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer .footer-bottom img {
+  display: block;
+  width: auto;
+  height: 3rem;
+}
+
+footer .footer-bottom-group:last-child img {
+  height: 1.8rem;
+}
+
+/* back to top */
+footer .footer-back-to-top {
+  position: fixed;
+  right: 0.8rem;
+  bottom: 6.4rem;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: rgb(109 109 109 / 90%);
+  color: var(--lg-white);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s;
+}
+
+footer .footer-back-to-top::before {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: currentcolor;
+  mask: url("../../icons/lg-caret-down.svg") center / contain no-repeat;
+  transform: rotate(180deg);
+}
+
+footer .footer-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+footer .footer-back-to-top:hover {
+  background: rgb(61 61 61 / 95%);
+}
+
+@media (min-width: 600px) {
+  footer .footer-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 900px) {
-    footer .footer > div {
-        padding: 40px 32px 24px;
-    }
+  footer .footer-inner {
+    padding: 0 3.2rem;
+  }
+
+  footer .footer-main {
+    padding: 3.2rem 0.8rem;
+  }
+
+  footer .footer-columns {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin-bottom: 1.6rem;
+  }
+
+  footer .footer-links a {
+    line-height: 2.8rem;
+  }
+
+  footer .footer-bottom-group:last-child img {
+    height: 3rem;
+  }
+
+  footer .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 2.4rem;
+  }
+
+  footer .footer-bottom-group {
+    justify-content: flex-start;
+    gap: 1.6rem;
+  }
+
+  footer .footer-bottom-group .footer-title {
+    flex: none;
+  }
 }

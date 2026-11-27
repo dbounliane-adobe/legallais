@@ -1,0 +1,33 @@
+.breadcrumb nav {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.4rem;
+  background: var(--univers-color, var(--lg-black));
+  color: var(--lg-white);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+}
+
+.breadcrumb li + li::before {
+  content: ">";
+  margin: 0 0.4rem;
+}
+
+.breadcrumb a:any-link {
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.breadcrumb a:hover {
+  color: inherit;
+}

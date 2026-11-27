@@ -1,0 +1,65 @@
+.cards-logos .cards-logos-list {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 16px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lg-black) var(--lg-border);
+}
+
+.cards-logos .cards-logos-item {
+  flex: 0 0 calc((100% - 16px) / 2.5);
+  scroll-snap-align: start;
+}
+
+.cards-logos .cards-logos-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96px;
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: var(--lg-radius);
+  background: var(--lg-white);
+  color: var(--lg-black);
+  text-decoration: none;
+}
+
+.cards-logos a.cards-logos-link:hover,
+.cards-logos a.cards-logos-link:focus-visible {
+  box-shadow: var(--lg-shadow-panel);
+}
+
+.cards-logos .cards-logos-link picture {
+  display: contents;
+}
+
+.cards-logos .cards-logos-link img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cards-logos .cards-logos-name {
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .cards-logos .cards-logos-item {
+    flex-basis: calc((100% - 32px) / 4.5);
+  }
+}
+
+@media (min-width: 900px) {
+  .cards-logos .cards-logos-item {
+    flex-basis: calc((100% - 40px) / 6);
+  }
+
+  .cards-logos .cards-logos-link {
+    height: 112px;
+  }
+}

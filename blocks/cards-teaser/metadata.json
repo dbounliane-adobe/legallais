@@ -1,0 +1,12 @@
+{
+  "variantName": "cards-teaser",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Repeating look-alike cards (image, title, text, link to a detail page) in a scroller -> Cards. | Dynamic news list: each item links to a detail article with a date-bound teaser -> Cards.",
+  "contentPattern": "White teaser cards: image, title, dotted separator, description, \"En savoir plus →\" link; horizontal scroller. | Same card design as Nos boutiques (image, title, description, \"En savoir plus →\"); reuses cards-teaser.",
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "One row per card: cell 1 image, cell 2 heading (h3/h4), description paragraph and a final standalone link (\"En savoir plus\"). The title is linked to the same target when not linked by the author. Rendered as a horizontal scroller.",
+  "reuseGuidance": "Use for shop, news or editorial teasers (Nos boutiques, Legallais pour vous). For logo-only tiles use cards-logos.",
+  "sourceUrl": "https://www.legallais.com/"
+}
