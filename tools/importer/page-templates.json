@@ -1,0 +1,155 @@
+{
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.legallais.com/"
+      ],
+      "representativeUrl": "https://www.legallais.com/",
+      "description": "Legallais homepage: welcome hero + promo slider, Commerce product carousel, services, brands, boutiques, news, reviews",
+      "blocks": [
+        {
+          "name": "carousel-promo",
+          "instances": [
+            ".home-page__section--hero .c-hero__slider"
+          ]
+        },
+        {
+          "name": "product-recommendations",
+          "instances": [
+            ".home-page__section--lastseen .c-carousel"
+          ]
+        },
+        {
+          "name": "columns-image-text",
+          "instances": [
+            ".home-page__section--premium .cms-double-colonnes"
+          ]
+        },
+        {
+          "name": "cards-logos",
+          "instances": [
+            ".home-page__section--brand .c-carousel"
+          ]
+        },
+        {
+          "name": "cards-teaser",
+          "instances": [
+            ".home-page__section--shop .c-carousel",
+            ".home-page__section--news .c-carousel"
+          ]
+        },
+        {
+          "name": "widget",
+          "instances": [
+            ".home-page__section--satisfaction .home__reviews"
+          ]
+        }
+      ],
+      "urlPattern": "/",
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "hero",
+          "selector": [
+            ".home-page__section--hero"
+          ],
+          "style": "split",
+          "blocks": [
+            "carousel-promo"
+          ],
+          "defaultContent": [
+            ".home-page__section--hero .c-hero__welcome"
+          ]
+        },
+        {
+          "id": "rc2",
+          "name": "selected-products",
+          "selector": [
+            ".home-page__section--lastseen"
+          ],
+          "style": null,
+          "blocks": [
+            "product-recommendations"
+          ],
+          "defaultContent": [
+            ".home-page__section--lastseen .home-page__title-wrapper"
+          ]
+        },
+        {
+          "id": "rc3",
+          "name": "services",
+          "selector": [
+            ".home-page__section--premium"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-image-text"
+          ],
+          "defaultContent": [
+            ".home-page__section--premium .home-page__title-wrapper"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "brands",
+          "selector": [
+            ".home-page__section--brand"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-logos"
+          ],
+          "defaultContent": [
+            ".home-page__section--brand .home-page__title-wrapper"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "boutiques",
+          "selector": [
+            ".home-page__section--shop"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-teaser"
+          ],
+          "defaultContent": [
+            ".home-page__section--shop .home-page__title-wrapper"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "news",
+          "selector": [
+            ".home-page__section--news"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-teaser"
+          ],
+          "defaultContent": [
+            ".home-page__section--news .home-page__title-wrapper"
+          ]
+        },
+        {
+          "id": "rc7",
+          "name": "reviews",
+          "selector": [
+            ".home-page__section--satisfaction"
+          ],
+          "style": null,
+          "blocks": [
+            "widget"
+          ],
+          "defaultContent": [
+            ".home-page__section--satisfaction .home-page__title-wrapper"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

@@ -88,46 +88,69 @@
   --spacing-huge: 120px;
   --spacing-xhuge: 144px;
   --spacing-xxhuge: 192px;
-  --type-base-font-family: adobe-clean, roboto, roboto-fallback, system-ui, sans-serif;
+  --type-base-font-family: lato, lato-fallback, system-ui, sans-serif;
   --type-display-1-font: normal normal 300 6rem/7.2rem var(--type-base-font-family);
-  --type-display-1-letter-spacing: 0.04em;
+  --type-display-1-letter-spacing: normal;
   --type-display-2-font: normal normal 300 4.8rem/5.6rem var(--type-base-font-family);
-  --type-display-2-letter-spacing: 0.04em;
+  --type-display-2-letter-spacing: normal;
   --type-display-3-font: normal normal 300 3.4rem/4rem var(--type-base-font-family);
-  --type-display-3-letter-spacing: 0.04em;
+  --type-display-3-letter-spacing: normal;
   --type-headline-1-font: normal normal 400 2.4rem/3.2rem var(--type-base-font-family);
-  --type-headline-1-letter-spacing: 0.04em;
-  --type-headline-2-default-font: normal normal 300 2rem/2.4rem var(--type-base-font-family);
-  --type-headline-2-default-letter-spacing: 0.04em;
+  --type-headline-1-letter-spacing: normal;
+  --type-headline-2-default-font: normal normal 400 2rem/2.4rem var(--type-base-font-family);
+  --type-headline-2-default-letter-spacing: normal;
   --type-headline-2-strong-font: normal normal 700 2rem/2.4rem var(--type-base-font-family);
-  --type-headline-2-strong-letter-spacing: 0.04em;
-  --type-body-1-default-font: normal normal 300 1.6rem/2.4rem var(--type-base-font-family);
-  --type-body-1-default-letter-spacing: 0.04em;
+  --type-headline-2-strong-letter-spacing: normal;
+  --type-body-1-default-font: normal normal 400 1.6rem/2.4rem var(--type-base-font-family);
+  --type-body-1-default-letter-spacing: normal;
   --type-body-1-strong-font: normal normal 700 1.6rem/2.4rem var(--type-base-font-family);
-  --type-body-1-strong-letter-spacing: 0.04em;
+  --type-body-1-strong-letter-spacing: normal;
   --type-body-1-emphasized-font: normal normal 700 1.6rem/2.4rem var(--type-base-font-family);
-  --type-body-1-emphasized-letter-spacing: 0.04em;
-  --type-body-2-default-font: normal normal 300 1.4rem/2rem var(--type-base-font-family);
-  --type-body-2-default-letter-spacing: 0.04em;
+  --type-body-1-emphasized-letter-spacing: normal;
+  --type-body-2-default-font: normal normal 400 1.4rem/2rem var(--type-base-font-family);
+  --type-body-2-default-letter-spacing: normal;
   --type-body-2-strong-font: normal normal 700 1.4rem/2rem var(--type-base-font-family);
-  --type-body-2-strong-letter-spacing: 0.04em;
+  --type-body-2-strong-letter-spacing: normal;
   --type-body-2-emphasized-font: normal normal 700 1.4rem/2rem var(--type-base-font-family);
-  --type-body-2-emphasized-letter-spacing: 0.04em;
+  --type-body-2-emphasized-letter-spacing: normal;
   --type-button-1-font: normal normal 400 2rem/2.6rem var(--type-base-font-family);
-  --type-button-1-letter-spacing: 0.08em;
+  --type-button-1-letter-spacing: normal;
   --type-button-2-font: normal normal 400 1.6rem/2.4rem var(--type-base-font-family);
-  --type-button-2-letter-spacing: 0.08em;
+  --type-button-2-letter-spacing: normal;
   --type-details-caption-1-font: normal normal 400 1.2rem/1.6rem var(--type-base-font-family);
-  --type-details-caption-1-letter-spacing: 0.08em;
-  --type-details-caption-2-font: normal normal 300 1.2rem/1.6rem var(--type-base-font-family);
-  --type-details-caption-2-letter-spacing: 0.08em;
+  --type-details-caption-1-letter-spacing: normal;
+  --type-details-caption-2-font: normal normal 400 1.2rem/1.6rem var(--type-base-font-family);
+  --type-details-caption-2-letter-spacing: normal;
   --type-details-overline-font: normal normal 400 1.2rem/2rem var(--type-base-font-family);
   --type-details-overline-letter-spacing: 0.16em;
 
   /* Additional tokens */
   --type-fixed-font-family: adobe-clean, "Roboto Mono", menlo, consolas, "Liberation Mono", monospace, system-ui, sans-serif;
   --background-color: var(--color-neutral-50);
-  --nav-height: 6.4rem;
+  --nav-height: 16.9rem;
+
+  /* Legallais brand tokens */
+  --lg-yellow: #ffe000;
+  --lg-yellow-light: #fff6d9;
+  --lg-black: #191919;
+  --lg-white: #fff;
+  --lg-grey-bg: #f5f5f5;
+  --lg-border: #e0e0e0;
+  --lg-shadow-panel: 0 1px 8px 0 rgb(0 0 0 / 12%);
+  --lg-radius: 8px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --nav-height: 18.5rem;
+  }
+}
+
+/* fallback font */
+@font-face {
+  font-family: lato-fallback;
+  size-adjust: 97%;
+  src: local("Arial");
 }
 
 /* fallback font */
@@ -149,7 +172,7 @@ body {
   font: var(--type-body-1-default-font);
   letter-spacing: var(--type-body-1-default-letter-spacing);
   margin: 0;
-  color: var(--color-neutral-800);
+  color: var(--lg-black);
   background-color: var(--background-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -164,6 +187,9 @@ body:not(.appear) {
 header {
   grid-row: 1;
   height: var(--nav-height);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 main {
@@ -274,7 +300,7 @@ button {
 }
 
 /* links */
-a:not(.dropin-design a) {
+a:where(:not(.dropin-design a)) {
   color: var(--color-brand-500);
   font: var(--type-body-1-strong-font);
   letter-spacing: var(--type-body-1-strong-letter-spacing);
@@ -282,7 +308,7 @@ a:not(.dropin-design a) {
   overflow-wrap: break-word;
 }
 
-a:not(.dropin-design a):hover {
+a:where(:not(.dropin-design a)):hover {
   color: var(--color-brand-600);
   text-decoration: underline;
 }
@@ -646,4 +672,219 @@ body.columns main > .section:empty {
 */
 main[hidden] {
   display: none !important;
+}
+
+/* ======================================================================
+ * Legallais brand layer (overrides boilerplate defaults)
+ * ==================================================================== */
+/* stylelint-disable no-descending-specificity, no-duplicate-selectors */
+body {
+  background-color: var(--lg-grey-bg);
+}
+
+main h1 {
+  font: normal normal 700 3.2rem/4rem var(--type-base-font-family);
+  letter-spacing: normal;
+}
+
+main > .section > .default-content-wrapper h2,
+main > .section > .default-content-wrapper h3 {
+  margin: 0;
+  font: normal normal 700 2.8rem/3.6rem var(--type-base-font-family);
+  letter-spacing: normal;
+}
+
+@media (min-width: 900px) {
+  main > .section > div {
+    max-width: 137.6rem;
+  }
+}
+
+/* section heading row: title + "Voir tout" link */
+main > .section > .default-content-wrapper:has(> :is(h2, h3) + p > a:only-child) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+main > .section > .default-content-wrapper > :is(h2, h3) + p:has(> a:only-child) {
+  margin: 0;
+}
+
+main > .section > .default-content-wrapper > :is(h2, h3) + p > a:only-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font: normal normal 700 1.4rem/2rem var(--type-base-font-family);
+  color: var(--lg-black);
+}
+
+main > .section > .default-content-wrapper > :is(h2, h3) + p > a:only-child::after {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: currentcolor;
+  mask: url("../icons/lg-arrow-right.svg") center / contain no-repeat;
+}
+
+/* buttons */
+main a.button:any-link,
+button.button {
+  gap: 0.8rem;
+  border: 1px solid transparent;
+  border-radius: var(--lg-radius);
+  padding: 0.8rem 1.6rem;
+  font: normal normal 700 1.6rem/2.4rem var(--type-base-font-family);
+  letter-spacing: normal;
+}
+
+main a.button.primary,
+button.button.primary,
+main a.button:any-link:not(.secondary, .accent) {
+  border-color: var(--lg-yellow);
+  background-color: var(--lg-yellow);
+  color: var(--lg-black);
+}
+
+main a.button.primary:hover,
+main a.button.primary:focus-visible,
+button.button.primary:hover {
+  border-color: #f5d000;
+  background-color: #f5d000;
+  color: var(--lg-black);
+  text-decoration: none;
+}
+
+main a.button.secondary,
+button.button.secondary {
+  border: 1px solid var(--lg-yellow);
+  background-color: var(--lg-white);
+  color: var(--lg-black);
+}
+
+main a.button.secondary:hover,
+button.button.secondary:hover {
+  background-color: var(--lg-yellow-light);
+  color: var(--lg-black);
+  text-decoration: none;
+}
+
+/* split section: welcome text beside the block (homepage hero) */
+main > .section.split {
+  box-sizing: border-box;
+  margin: 1.6rem;
+  padding: 2.4rem 1.6rem;
+  border-radius: var(--lg-radius);
+  background: var(--lg-white);
+  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 8%);
+}
+
+main > .section.split .default-content-wrapper .button-wrapper {
+  display: inline-block;
+  margin: 1.6rem 1.6rem 0 0;
+}
+
+@media (min-width: 900px) {
+  main > .section.split {
+    display: grid;
+    grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 3.2rem;
+    max-width: 137.6rem;
+    margin: 1.2rem auto 4.8rem;
+    padding: 1.6rem;
+  }
+
+  main > .section.split > div {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  main > .section.split > .default-content-wrapper {
+    padding: 2.4rem;
+  }
+
+  main > .section.split > .default-content-wrapper > p:not(.button-wrapper) {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+/* univers colours (sections, breadcrumb variants, tiles) */
+.batiment { --univers-color: #ec1b34; }
+.agencement-ameublement { --univers-color: #f6921e; }
+.plomberie { --univers-color: #56c4cf; }
+.genie-climatique { --univers-color: #019640; }
+.electricite { --univers-color: #c5168c; }
+.consommables { --univers-color: #8bc53f; }
+.outillage { --univers-color: #00a0e3; }
+.materiels-et-equipements { --univers-color: #a054a0; }
+.epi { --univers-color: #896735; }
+
+/* breadcrumb section sits tight above the content */
+main > .section.breadcrumb-container {
+  padding-top: 1.6rem;
+  padding-bottom: 0;
+}
+
+/* card section: white panel (category header) */
+main > .section.card {
+  box-sizing: border-box;
+  margin: 1.6rem;
+  padding: 2.4rem 1.6rem;
+  border-bottom: 2px solid var(--univers-color, var(--lg-yellow));
+  border-radius: var(--lg-radius);
+  background: var(--lg-white);
+  box-shadow: 0 0.1rem 0.4rem rgb(0 0 0 / 8%);
+}
+
+main > .section.card > div {
+  margin: 0;
+  padding: 0;
+}
+
+main > .section.card h1 {
+  margin: 0.4rem 0;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+main > .section.card .default-content-wrapper:first-child > p:first-child a:any-link {
+  font: 700 1.4rem/2rem var(--type-base-font-family);
+  color: var(--univers-color, var(--lg-black));
+}
+
+main > .section.card .default-content-wrapper:first-child > p:first-child a:any-link::before {
+  content: "← ";
+}
+
+main > .section.card .default-content-wrapper:last-child:not(:first-child) p {
+  margin: 1.6rem 0 0;
+  font-size: 1.4rem;
+}
+
+main > .section.card .default-content-wrapper:last-child:not(:first-child) a:any-link {
+  font-weight: 400;
+  color: var(--lg-black);
+  text-decoration: underline;
+}
+
+@media (min-width: 900px) {
+  main > .section.card {
+    display: grid;
+    grid-template-columns: minmax(0, 30rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 0 3.2rem;
+    max-width: 137.6rem;
+    margin: 1.6rem auto 4rem;
+    padding: 2.4rem 3.2rem;
+  }
+
+  main > .section.card > .default-content-wrapper:last-child:not(:first-child) {
+    grid-column: 1 / -1;
+  }
 }

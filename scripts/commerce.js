@@ -12,6 +12,8 @@ import {
   buildBlock,
   getMetadata,
   readBlockConfig,
+  toCamelCase,
+  toClassName,
 } from './aem.js';
 import initializeDropins from './initializers/index.js';
 
@@ -698,7 +700,9 @@ export function getProductSku() {
   if (IS_DA || IS_EW) {
     return getMetadata('sku') || getDefaultSkuFromBlock();
   }
-  return getMetadata('sku') || getSkuFromUrl();
+  // Template page opened directly (e.g. /products/default or local preview): fall back to
+  // the authored defaultSku so the page renders a product instead of a 404.
+  return getMetadata('sku') || getSkuFromUrl() || getDefaultSkuFromBlock();
 }
 
 /**
@@ -893,6 +897,23 @@ export function decorateSections(main) {
     section.classList.add('section');
     section.dataset.sectionStatus = 'initialized';
     section.style.display = 'none';
+
+    // Section Metadata (Document Authoring): style -> classes, other keys -> data attributes
+    const sectionMeta = section.querySelector('div.section-metadata');
+    if (sectionMeta) {
+      const meta = readBlockConfig(sectionMeta);
+      Object.keys(meta).forEach((key) => {
+        if (key === 'style') {
+          meta.style.split(',').map((style) => toClassName(style.trim())).filter(Boolean)
+            .forEach((style) => section.classList.add(style));
+        } else {
+          section.dataset[toCamelCase(key)] = meta[key];
+        }
+      });
+      const metaWrapper = sectionMeta.parentElement;
+      sectionMeta.remove();
+      if (metaWrapper && !metaWrapper.children.length) metaWrapper.remove();
+    }
   });
 }
 
