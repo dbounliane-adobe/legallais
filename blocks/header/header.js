@@ -20,14 +20,15 @@ const t = (key, fallback) => labels.Global?.[key] ?? fallback;
 
 /**
  * Fetches the nav fragment. Metadata-independent dual fetch:
- * /content/nav.plain.html (local preview) first, then /nav.plain.html (DA / EDS).
- * Relative image paths are resolved against the fragment URL so they work on every page.
+ * /content/nav.plain.html (local preview, pages under /content/) first, then /nav.plain.html
+ * (DA / EDS). Relative image paths are resolved against the fragment URL so they work on every page.
  * @returns {Promise<Document|null>}
  */
 async function fetchNav() {
-  let resp = await fetch('/content/nav.plain.html');
+  const isLocalPreview = window.location.pathname.startsWith('/content/');
   let base = '/content/nav.plain.html';
-  if (!resp.ok) {
+  let resp = isLocalPreview ? await fetch(base) : null;
+  if (!resp?.ok) {
     resp = await fetch('/nav.plain.html');
     base = '/nav.plain.html';
   }

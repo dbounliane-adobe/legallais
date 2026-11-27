@@ -156,13 +156,15 @@ async function renderStoreSwitcher(footer) {
 
 /**
  * Fetches the footer fragment. Metadata-independent dual fetch:
- * /content/footer.plain.html (local preview) first, then /footer.plain.html (DA / EDS).
+ * /content/footer.plain.html (local preview, pages under /content/) first, then
+ * /footer.plain.html (DA / EDS).
  * @returns {Promise<Document|null>}
  */
 async function fetchFooter() {
+  const isLocalPreview = window.location.pathname.startsWith('/content/');
   let base = '/content/footer.plain.html';
-  let resp = await fetch('/content/footer.plain.html');
-  if (!resp.ok) {
+  let resp = isLocalPreview ? await fetch(base) : null;
+  if (!resp?.ok) {
     base = '/footer.plain.html';
     resp = await fetch('/footer.plain.html');
   }

@@ -5,6 +5,7 @@
       "commerce-endpoint": "https://www.aemshop.net/cs-graphql",
       "commerce-assets-enabled": true,
       "commerce-free-gifts-enabled": true,
+      "adobe-commerce-optimizer": false,
       "headers": {
         "all": {
           "Store": "default"
