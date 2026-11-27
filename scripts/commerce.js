@@ -481,7 +481,9 @@ export async function fetchPlaceholders(path) {
 
     // path
     if (path) {
-      const pathUrl = rootPath.replace(/\/$/, `/${path}`);
+      // Local preview serves pages and sheets under /content/; DA / EDS serve them at the root.
+      const localPrefix = window.location.pathname.startsWith('/content/') ? '/content' : '';
+      const pathUrl = `${localPrefix}${rootPath.replace(/\/$/, `/${path}`)}`;
       promises.push(getOrCreateFetch(pathUrl, path));
     }
 
