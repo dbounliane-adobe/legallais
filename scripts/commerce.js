@@ -459,7 +459,9 @@ export async function fetchPlaceholders(path) {
       // reducing CDN traffic for static localization assets past their max-age.
       const resourceFetchPromise = fetch(`${url}?sheet=data`, { cache: 'force-cache' }).then(async (response) => {
         if (response.ok) {
-          const data = await response.json();
+          const json = await response.json();
+          // EDS returns the requested sheet; the local preview returns the whole workbook.
+          const data = json[':type'] === 'multi-sheet' ? (json.data || {}) : json;
           // Cache the response
           window.placeholders[resourceCacheKey] = data;
           return data;

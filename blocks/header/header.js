@@ -39,6 +39,13 @@ async function fetchNav() {
     img.src = new URL(img.getAttribute('src'), baseUrl).href;
     img.loading = 'lazy';
   });
+  // Document Authoring wraps the leading text / link of a list item that also holds a nested
+  // list in a <p> (<li><p>Produits</p><p>Univers</p><ul>…). Unwrap it so every source
+  // reads like the local markup (<li>Produits<p>Univers</p><ul>…).
+  doc.querySelectorAll('li').forEach((li) => {
+    const first = [...li.childNodes].find((n) => n.nodeType !== Node.TEXT_NODE || n.textContent.trim());
+    if (first?.nodeType === Node.ELEMENT_NODE && first.tagName === 'P') first.replaceWith(...first.childNodes);
+  });
   return doc;
 }
 
