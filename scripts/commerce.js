@@ -640,7 +640,9 @@ export async function commerceEndpointWithQueryParams() {
 function getSkuFromUrl() {
   const path = window.location.pathname;
   const result = path.match(/\/products\/[\w|-]+\/([\w|-]+)$/);
-  return result?.[1];
+  // Product links are lowercased (getProductLink → sanitizeName) but the catalog matches SKUs
+  // case-sensitively (ADB376, not adb376).
+  return result?.[1]?.toUpperCase();
 }
 
 /**
