@@ -65,7 +65,7 @@ import {
   TERMS_AND_CONDITIONS_FORM_NAME,
 } from './constants.js';
 
-import { rootLink } from '../../scripts/commerce.js';
+import { fetchPlaceholders, rootLink } from '../../scripts/commerce.js';
 
 // Initializers
 import '../../scripts/initializers/account.js';
@@ -87,8 +87,12 @@ function redirectToCartIfEmpty(cartData) {
 }
 
 export default async function decorate(block) {
-  setMetaTags('Checkout');
-  document.title = 'Checkout';
+  // Localized page titles (placeholders/checkout.json, placeholders/global.json)
+  const labels = await fetchPlaceholders('placeholders/checkout.json');
+  const checkoutTitle = labels.Checkout?.title || 'Checkout';
+  const confirmationTitle = labels.Global?.OrderConfirmationTitle || 'Order Confirmation';
+  setMetaTags(checkoutTitle);
+  document.title = checkoutTitle;
 
   const cartData = events.lastPayload('cart/initialized');
   redirectToCartIfEmpty(cartData);
@@ -104,8 +108,8 @@ export default async function decorate(block) {
   const loaderRef = { current: null };
 
   events.on('order/placed', () => {
-    setMetaTags('Order Confirmation');
-    document.title = 'Order Confirmation';
+    setMetaTags(confirmationTitle);
+    document.title = confirmationTitle;
   });
 
   // Create the checkout layout using fragments
@@ -203,7 +207,7 @@ export default async function decorate(block) {
   ] = await Promise.all([
     renderMergedCartBanner($mergedCartBanner),
 
-    renderCheckoutHeader($heading, 'Checkout'),
+    renderCheckoutHeader($heading, checkoutTitle),
 
     renderServerError($serverError, $content),
 

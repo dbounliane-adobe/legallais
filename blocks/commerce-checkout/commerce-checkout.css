@@ -296,3 +296,93 @@
         margin-top: 0;
     }
 }
+
+/* Legallais look: white panels, bold headings, yellow selection (homepage cards) */
+.commerce-checkout {
+    padding: var(--spacing-big) 0 var(--spacing-xxbig);
+}
+
+.commerce-checkout .checkout-header h1,
+.commerce-checkout .checkout__heading .dropin-header-container__title {
+    color: var(--lg-black);
+    font: 700 3.2rem/4rem var(--type-base-font-family);
+}
+
+.commerce-checkout .dropin-header-container__title,
+.commerce-checkout .cart-order-summary__heading,
+.commerce-checkout .cart-summary-list__heading-text,
+.commerce-checkout .cart-cart-summary-list__heading-text {
+    color: var(--lg-black);
+    font-weight: 700;
+}
+
+.commerce-checkout .checkout__shipping-form,
+.commerce-checkout .checkout__payment-methods {
+    border-top: var(--lg-separator, 2px dotted var(--lg-border));
+}
+
+.commerce-checkout .checkout__payment-methods {
+    border-bottom: var(--lg-separator, 2px dotted var(--lg-border));
+}
+
+.commerce-checkout .dropin-toggle-button__actionButton {
+    border-radius: var(--lg-radius);
+}
+
+.commerce-checkout .dropin-toggle-button__selected .dropin-toggle-button__actionButton {
+    border-color: var(--lg-yellow);
+    background: var(--lg-yellow-light);
+    box-shadow: 0 0 0 1px var(--lg-yellow);
+}
+
+/* aside panels: the drop-ins' own grey background sits inside the white card */
+.commerce-checkout .checkout__aside .cart-order-summary,
+.commerce-checkout .checkout__aside .cart-cart-summary-list {
+    padding: 0;
+    background: none;
+}
+
+.commerce-checkout .dropin-checkbox__checkbox:checked + .dropin-checkbox__box,
+.commerce-checkout .dropin-radio-button__button:checked + .dropin-radio-button__icon {
+    border-color: var(--lg-black);
+}
+
+.commerce-checkout .checkout__place-order .dropin-button--primary {
+    min-width: 24rem;
+    justify-content: center;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .commerce-checkout {
+        padding: var(--spacing-medium);
+        border-radius: var(--lg-radius);
+        background: var(--lg-white);
+        box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 8%);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .commerce-checkout .checkout__main {
+        box-sizing: border-box;
+        padding: var(--spacing-big);
+        border-radius: var(--lg-radius);
+        background: var(--lg-white);
+        box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 8%);
+    }
+
+    .commerce-checkout .checkout__aside {
+        position: sticky;
+        top: var(--spacing-medium);
+        gap: var(--spacing-medium);
+    }
+
+    .commerce-checkout .checkout__aside > .checkout__block:not(:empty) {
+        box-sizing: border-box;
+        padding: var(--spacing-medium);
+        border-radius: var(--lg-radius);
+        background: var(--lg-white);
+        box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 8%);
+    }
+}

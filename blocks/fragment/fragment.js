@@ -19,7 +19,10 @@ export async function loadFragment(path) {
   if (path && path.startsWith('/') && !path.startsWith('//')) {
     const root = getRootPath().replace(/\/$/, '');
     const url = `${root}${path}.plain.html`;
-    const resp = await fetch(url);
+    // Local preview serves fragments under /content/; DA / EDS serve them at the root.
+    const isLocalPreview = window.location.pathname.startsWith('/content/');
+    let resp = isLocalPreview ? await fetch(`/content${url}`) : null;
+    if (!resp?.ok) resp = await fetch(url);
     if (resp.ok) {
       const main = document.createElement('main');
       main.innerHTML = await resp.text();

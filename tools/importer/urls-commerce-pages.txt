@@ -1,0 +1,8 @@
+https://www.legallais.com/user/connection
+https://main--aem-boilerplate-commerce--hlxsites.aem.live/cart.plain.html
+https://main--aem-boilerplate-commerce--hlxsites.aem.live/cart.plain.html?step=summary
+https://main--aem-boilerplate-commerce--hlxsites.aem.live/checkout.plain.html
+https://main--aem-boilerplate-commerce--hlxsites.aem.live/customer/create.plain.html
+https://main--aem-boilerplate-commerce--hlxsites.aem.live/customer/forgotpassword.plain.html
+https://main--aem-boilerplate-commerce--hlxsites.aem.live/customer/account.plain.html
+https://main--aem-boilerplate-commerce--hlxsites.aem.live/customer/sidebar-fragment.plain.html

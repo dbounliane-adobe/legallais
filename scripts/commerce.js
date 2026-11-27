@@ -109,17 +109,20 @@ export const authPrivacyPolicyConsentSlot = {
       marginBottom: 'var(--spacing-medium)',
     });
 
+    // Localized via placeholders/global.json (Global.PrivacyConsent*), English fallback.
+    const labels = (await fetchPlaceholders()).Global || {};
+
     const link = document.createElement('a');
     link.href = PRIVACY_POLICY_PATH;
     link.target = '_blank';
-    link.textContent = 'Privacy Policy';
+    link.textContent = labels.PrivacyConsentLink || 'Privacy Policy';
     link.style.textDecoration = 'underline';
     link.style.textUnderlineOffset = '6px';
 
     wrapper.append(
-      'By creating an account, you acknowledge that you have read and agree to our ',
+      labels.PrivacyConsentBefore || 'By creating an account, you acknowledge that you have read and agree to our ',
       link,
-      ', which outlines how we collect, use, and protect your personal data.',
+      labels.PrivacyConsentAfter || ', which outlines how we collect, use, and protect your personal data.',
     );
 
     ctx.appendChild(wrapper);

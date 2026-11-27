@@ -3,3 +3,75 @@ main .commerce-login-container {
     margin: 40px auto;
     width: 100%;
 }
+
+/* Legallais look: white card, icon title over a dotted separator, full-width yellow button */
+main .section.login.commerce-login-container {
+    max-width: 137.6rem;
+    margin: 0 auto 4.8rem;
+}
+
+.commerce-login {
+    box-sizing: border-box;
+    padding: 3.2rem 2.4rem;
+    border-radius: var(--lg-radius);
+    background: var(--lg-white);
+    box-shadow: var(--lg-panel-shadow, 0 0.2rem 0.8rem rgb(0 0 0 / 8%));
+}
+
+.commerce-login .auth-sign-in-form {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: none;
+}
+
+.commerce-login .auth-sign-in-form__title {
+    margin-bottom: 2.4rem;
+    padding-bottom: 2.4rem;
+    border-bottom: var(--lg-separator, 2px dotted var(--lg-border));
+}
+
+.commerce-login .auth-sign-in-form__title .dropin-header-container__title {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0;
+    font: 700 2.4rem/3.2rem var(--type-base-font-family);
+    color: var(--lg-black);
+}
+
+.commerce-login .auth-sign-in-form__title .dropin-header-container__title::before {
+    content: "";
+    flex: none;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: currentcolor;
+    mask: url("../../icons/lg-user-connected.svg") center / contain no-repeat;
+}
+
+.commerce-login .auth-sign-in-form__form__buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2.4rem;
+    margin-top: 3.2rem;
+}
+
+.commerce-login .auth-sign-in-form__button--submit {
+    align-self: stretch;
+    width: 100%;
+    justify-content: center;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.8rem;
+}
+
+.commerce-login .auth-sign-in-form__button--forgot {
+    align-self: center;
+    font-size: 1.8rem;
+}
+
+@media (min-width: 900px) {
+    .commerce-login {
+        padding: 4rem 4.8rem 4.8rem;
+    }
+}
